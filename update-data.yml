@@ -1,0 +1,45 @@
+name: Update eviction forecast data
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '32 13 15 * *'  # Approx. mid-month UTC; sources may have reporting delays
+permissions:
+  contents: write
+jobs:
+  download-validate-forecast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m pytest -q
+      - name: Download LSC official county filing counts
+        run: python -m src.download_lsc
+      - name: Download historical ACS five-year county tables
+        env:
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+        run: python -m src.download_acs
+      - name: Assemble observed county-month and ACS panel
+        run: python -m src.prepare_panel --reporting-lag 2
+      - name: Rolling-origin county forecasts
+        run: python -m src.forecast --horizons 1 3 --test-months 9
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: evict-ai-results-and-diagnostics
+          path: |
+            data/processed/
+            data/raw/*manifest.json
+            data/processed/unmatched_lsc_rows.csv
+            data/processed/duplicate_lsc_rows.csv
+          retention-days: 30
+      - name: Publish ONLY aggregated outputs (no raw input exports)
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/processed/county_month.csv data/processed/county_forecasts.csv data/processed/model_metrics.csv data/processed/rolling_backtests.csv data/processed/data_quality.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Update official-source county early-warning outputs'; git push; fi
