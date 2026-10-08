@@ -1,0 +1,13 @@
+horizon,model,mae_count,wape_pct,test_county_months,test_months,test_counties,precision,recall,true_positives,false_positives,false_negatives
+1,baseline_last,22.673,16.54,5634,9,680,,,,,
+1,baseline_seasonal,20.221,14.75,5634,9,680,,,,,
+1,model_history,21.825,15.92,5634,9,680,,,,,
+1,model_history_acs,18.635,13.59,5634,9,680,,,,,
+1,baseline_seasonal_hotspot_alert,,,5634,9,680,0.248,0.237,220.0,666.0,709.0
+1,model_history_acs_hotspot_alert,,,5634,9,680,0.269,0.195,181.0,492.0,748.0
+3,baseline_last,22.716,16.59,5639,9,682,,,,,
+3,baseline_seasonal,20.2,14.75,5639,9,682,,,,,
+3,model_history,25.763,18.81,5639,9,682,,,,,
+3,model_history_acs,20.002,14.6,5639,9,682,,,,,
+3,baseline_seasonal_hotspot_alert,,,5639,9,682,0.243,0.22,207.0,646.0,733.0
+3,model_history_acs_hotspot_alert,,,5639,9,682,0.258,0.299,281.0,809.0,659.0

@@ -1,0 +1,107 @@
+{
+  "source_records": 120357,
+  "accepted_records": 120146,
+  "unmatched_or_noncounty_records": 211,
+  "count_column": "filings_count",
+  "date_min": "2016-01-01",
+  "date_max": "2025-09-01",
+  "original_columns": [
+    "fips",
+    "name",
+    "date",
+    "filings_count",
+    "percent_of_historical_average",
+    "renter_occupied_housing_units",
+    "poverty_rate"
+  ],
+  "counties_with_month_gaps": 1027,
+  "missing_county_month_observations_within_spans": 23294,
+  "missing_months_sample": [
+    {
+      "fips": "02013",
+      "missing_months_within_recorded_span": 25
+    },
+    {
+      "fips": "02016",
+      "missing_months_within_recorded_span": 90
+    },
+    {
+      "fips": "02050",
+      "missing_months_within_recorded_span": 54
+    },
+    {
+      "fips": "02060",
+      "missing_months_within_recorded_span": 96
+    },
+    {
+      "fips": "02063",
+      "missing_months_within_recorded_span": 64
+    },
+    {
+      "fips": "02066",
+      "missing_months_within_recorded_span": 92
+    },
+    {
+      "fips": "02070",
+      "missing_months_within_recorded_span": 85
+    },
+    {
+      "fips": "02100",
+      "missing_months_within_recorded_span": 88
+    },
+    {
+      "fips": "02105",
+      "missing_months_within_recorded_span": 90
+    },
+    {
+      "fips": "02110",
+      "missing_months_within_recorded_span": 1
+    },
+    {
+      "fips": "02130",
+      "missing_months_within_recorded_span": 2
+    },
+    {
+      "fips": "02150",
+      "missing_months_within_recorded_span": 52
+    },
+    {
+      "fips": "02158",
+      "missing_months_within_recorded_span": 13
+    },
+    {
+      "fips": "02180",
+      "missing_months_within_recorded_span": 56
+    },
+    {
+      "fips": "02185",
+      "missing_months_within_recorded_span": 79
+    },
+    {
+      "fips": "02188",
+      "missing_months_within_recorded_span": 76
+    },
+    {
+      "fips": "02195",
+      "missing_months_within_recorded_span": 78
+    },
+    {
+      "fips": "02198",
+      "missing_months_within_recorded_span": 76
+    },
+    {
+      "fips": "02220",
+      "missing_months_within_recorded_span": 41
+    },
+    {
+      "fips": "02230",
+      "missing_months_within_recorded_span": 75
+    }
+  ],
+  "reporting_lag_months": 2,
+  "max_download_month": "2025-09-01",
+  "last_included_month": "2025-07-01",
+  "included_counties": 1462,
+  "included_months": 115,
+  "included_states": 33
+}
